@@ -1,4 +1,5 @@
-# Condicionales [Python]
+
+# Bucles [Python]
 # Ejercicios de profundización
 
 # Autor: Inove Coding School
@@ -10,36 +11,81 @@
 # de mucho más tiempo para abordar estos temas por su cuenta.
 # Requiere mayor tiempo de dedicación e investigación autodidacta.
 
+#from _typeshed import SupportsDivMod
+
+
+notas = [70, 82, -1, 65, 55, 67, 87, 92, -1]
+
 # IMPORTANTE: NO borrar los comentarios en VERDE o NARANJA
 
-# Ejercicios de práctica con números
 '''
 Enunciado:
-Realice un programa que solicite ingresar tres valores de temperatura
-De las temperaturas ingresadas por consola determinar:
-1 - ¿Cuáles de ellas es la máxima temperatura ingresada?
-2 - ¿Cuáles de ellas es la mínima temperatura ingresada?
-3 - ¿Cuál es el promedio de las temperaturas ingresadas?
+Similar al ejercicio de "calificaciones":
 
-En cada caso imprimir en pantalla el resultado
+Debe caluclar el promedio de todas las notas que se encuentra
+almacenadas en una lista llamada "notas" que ya
+hemos definido al comienzo del archivo
 
-IMPORTANTE: Para ordenar las temperatuas debe utilizar condicionales compuestos o anidados,
-no se busca utilizar bucles o algoritmos de ordenamiento ya que aún no hemos llegado a ese
-contenido. Recomendamos pensar bien este problema de lógica con un lápiz y papel.
+Luego transformar la califiación en una letra
+según la siguiente escala:
+- Si el puntaje es mayor igual a 90 --> imprimir A
+- Si el puntaje es mayor igual a 80 --> imprimir B
+- Si el puntaje es mayor igual a 70 --> imprimir C
+- Si el puntaje es mayor igual a 60 --> imprimir D
+- Si el puntaje es menor a  60      --> imprimir F
+
+A medida que recorre las notas, no debe considerar como válidas aquellas
+que son negativas, en ese caso el alumno estuvo ausente
+
+Debe contar la cantidad de notas válidas y la cantidad de ausentes
 '''
 
-print('Ejercicios de práctica con números')
+print("Mi organizador académico (#_#)")
 # Empezar aquí la resolución del ejercicio
-temp1 = float(input('ingrese temperatura 1: '))
-temp2 = float(input('ingrese temperatura 2: '))
-temprom = (temp1 + temp2)/2 
-print(temp1)
-print(temp2)
-print(temprom)
-if temp1 > temp2:
-    print('la temp1 es la maxima')
-elif temp1 < temp2:
-    print('la temp1 es la minima')
-else:
-    print('las temperaturas max y min no pueden ser iguales')
+sumatoria = 0           # Ya le hemos inicializado en 0
 
+for nota in notas:
+    sumatoria=sum(notas)
+    print(sumatoria)
+for nota in notas:
+    cantidad_notas= len(notas)
+    print(cantidad_notas)
+for i in notas:
+    if nota <=0:
+        cantidad_ausentes = i 
+        print(cantidad_ausentes)    
+for nota in notas:
+    promedio = sumatoria/(cantidad_notas - cantidad_ausentes)
+    print(promedio)
+
+if promedio >= 90:
+        print('A')
+elif promedio >=80:
+    print('B')
+elif promedio>=70:
+    print('C')
+elif promedio<=60:
+    print('D')
+else:
+    print('F')
+
+    
+
+# Para calcular el promedio primero debe obtener la suma
+# de todas las notas, que irá almacenando en esta variable
+
+
+
+cantidad_notas = 0      # Aquí debe contar cuantas notas válidas encontró
+cantidad_ausentes = 0   # Aquí debe contar cuantos ausentes hubo
+
+# Realice aquí el bucle para recorrer todas las notas
+# y cacular la sumatoria
+
+# Terminado el bucle calcule el promedio como
+# promedio = sumatoria / cantidad_notas
+
+# Utilice la nota promedio calculada y transformela
+# a calificación con letras, imprima en pantalla el resultado
+
+# Imprima en pantalla al cantidad de ausentes

@@ -1,4 +1,4 @@
-# Condicionales [Python]
+# Bucles [Python]
 # Ejercicios de profundización
 
 # Autor: Inove Coding School
@@ -10,50 +10,101 @@
 # de mucho más tiempo para abordar estos temas por su cuenta.
 # Requiere mayor tiempo de dedicación e investigación autodidacta.
 
+temp_dataloger = [12.8, 18.6, 14.5, 20.8, 12.1, 21.2, 13.5, 18.6,
+                  14.7, 19.6, 11.2, 18.4]
+
 # IMPORTANTE: NO borrar los comentarios en VERDE o NARANJA
 
-# Ejercicios de práctica con texto
 '''
 Enunciado:
-Realice un programa que solicite por consola 3 palabras cualesquiera
-Luego el programa debe consultar al usuario como quiere ordenar las palabras
-1 - Ordenar por orden alfabético (usando el operador ">")
-2 - Ordenar por cantidad de letras (longitud de la palabra (len) y operador ">")
+En este ejercicio se lo provee de una lista de temperaturas,
+esa lista de temperaturas corresponde a los valores de temperaturas
+tomados durante una temporada del año en Buenos Aires.
+Usted deberá analizar dicha lista para deducir
+en que temporada del año se realizó el muestreo de temperatura.
+La variable con la lista de temperaturas se llama "temp_dataloger"
+definida al comienzo del archivo
 
-Si se ingresa "1" por consola se deben ordenar las 3 palabras por orden alfabético
-e imprimir en pantalla de la mayor a la menor
+Debe recorrer la lista "temp_dataloger" y obtener los siguientes
+resultados
 
-Si se ingresa "2" por consola se deben ordenar las 3 palabras por cantidad de letras
-e imprimir en pantalla de la mayor a la menor
+1 - Obtener la máxima temperatura
+2 - Obtener la mínima temperatura
+3 - Obtener el promedio de las temperaturas
 
-IMPORTANTE: Para ordenar las palabras deben realizar condicionales compuestos o anidados,
-no se busca utilizar bucles o algoritmos de ordenamiento ya que aún no hemos llegado a ese
-contenido.
+Los resultados se deberán almacenar en las variables
+que ya hemos preparado para usted al comienzo del ejercicio
+
+NOTA: No se debe ordenar la lista de temperaturas, se debe obtener
+el máximo y el mínimo utilizando los mismos métodos vistos
+durante la clase (ejemplos_clase/ejemplo_5.py)
 '''
 
-print('Ejercicios de práctica con cadenas')
+print("Mi primer pasito en data analytics")
 # Empezar aquí la resolución del ejercicio
 
-palabra1= str(input('ingrese palabra 1: '))
-palabra2 = str(input('ingrese palabra 2:'))
-palabra3 = str(input('ingrese palabra 3:'))
-print('como quieres ordenar las palabras ?')
-seleccion = input('(1) orden alfabetico-(2) cantidad de letras')
+temperatura_max= max(temp_dataloger)
+print(temperatura_max)
 
-if seleccion == 1 and palabra1 > palabra2 and palabra1>palabra3:
-    print('palabra 1 es mayor')
-elif palabra2 > palabra1 and palabra2 > palabra3:
-    print('palabra2 es mayor')
-elif palabra3 > palabra1 and palabra3 > palabra2:
-    print('palabra 3 es mayor')        
+temperatura_min= min(temp_dataloger)
+print(temperatura_min)
+
+for temp in temp_dataloger:
+    temperatura_sumatoria= sum(temp_dataloger)
+    print('temp sumatoria:',temperatura_sumatoria)
+for temp in temp_dataloger: 
+    temperatura_len = len(temp_dataloger)
+    print('temp longitud:',temperatura_len)
+for temp in temp_dataloger:
+    temperatura_promedio = (temperatura_sumatoria/ temperatura_len)
+    print('temperatura_promedio:', temperatura_promedio)
+if (temperatura_max) >= 28 and (temperatura_min <=19):
+    print('esto es verano')
+elif (temperatura_max >= 20) and (temperatura_min <=11):
+    print('esto es otoño')
+elif(temperatura_max >=14) and (temperatura_min <=8):
+    print('esto es invierno')   
 else:
-    print( 'son iguales las palabras ')
+    print('esto es primavera')
 
-if seleccion ==2 and len(palabra1) >len(palabra2) and len(palabra1)>len(palabra1):
-    print('palabra 1 es mayor')
-elif len(palabra2)>len(palabra1) and len(palabra2)>len(palabra3):
-    print('palabra 2 es mayor')
-elif len(palabra3)> len(palabra1) and len(palabra3) > len(palabra2):
-    print('la palabra 3 es mayor')        
 
-    
+temperatura_max = None      # Aquí debe ir almacenando la temp máxima
+temperatura_min = None      # Aquí debe ir almacenando la temp mínima
+temperatura_sumatoria = 0   # Aquí debe ir almacenando la suma de todas las temp
+temperatura_promedio = 0    # Al finalizar el loop deberá aquí alamcenar el promedio
+temperatura_len = 0         # Aquí debe almacenar cuantas temperatuas hay en la lista
+
+# Colocar el bucle aqui......
+
+# Al finalizar el bucle compare si el valor que usted calculó para
+# temperatura_max y temperatura_min coincide con el que podría calcular
+# usando la función "max" y la función "min" de python
+# función "max" --> https://www.w3schools.com/python/ref_func_max.asp
+# función "min" --> https://www.w3schools.com/python/ref_func_min.asp
+
+# Al finalizar el bucle debe calcular el promedio como:
+# temperatura_promedio = temperatura_sumatoria / cantidad_temperatuas
+
+# Corroboren los resultados de temperatura_sumatoria
+# usando la función "sum"
+# función "sum" --> https://www.w3schools.com/python/ref_func_sum.asp
+
+'''
+Una vez que tengamos nuestros valores correctamente calculados debemos
+determinar en que epoca del año nos encontramos en Buenos Aires utilizando
+la estadística de años anteriores. Basados en el siguiente link realizamos
+las siguientes aproximaciones:
+
+verano -->      min = 19, max = 28
+otoño -->       min = 11, max = 20
+invierno -->    min = 8, max = 14
+primavera -->   min = 10, max = 24
+
+Referencia:
+https://es.weatherspark.com/y/28981/Clima-promedio-en-Buenos-Aires-Argentina-durante-todo-el-a%C3%B1o
+'''
+
+# En base a los rangos de temperatura de cada estación,
+# ¿En qué época del año nos encontramos?
+# Imprima el resultado en pantalla
+# Debe utilizar temperatura_max y temperatura_min para definirlo
